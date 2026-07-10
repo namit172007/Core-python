@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#f2f6fc;
+        }
+
+        .container{
+            width:700px;
+            margin:100px auto;
+            background:white;
+            padding:50px;
+            border-radius:12px;
+            box-shadow:0 0 15px rgba(0,0,0,0.2);
+            text-align:center;
+        }
+
+        h1{
+            color:#003366;
+            font-size:40px;
+            margin-bottom:15px;
+        }
+
+        p{
+            color:#555;
+            font-size:18px;
+        }
+    </style>
+
+</head>
+<body>
+
+{% include "Header.html" %}
+
+<div class="container">
+
+    <h1>Welcome to Django Project</h1>
+
+    <p>
+        Welcome to the Student Management System.<br><br>
+        Use the navigation menu above to access different modules of the project.
+    </p>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#f2f6fc;
+        }
+
+        .container{
+            width:450px;
+            margin:40px auto;
+            background:white;
+            padding:30px;
+            border-radius:12px;
+            box-shadow:0 0 15px rgba(0,0,0,0.2);
+        }
+
+        h1{
+            text-align:center;
+            color:#003366;
+            margin-bottom:20px;
+        }
+
+        hr{
+            margin:10px 0;
+        }
+
+        table{
+            width:100%;
+        }
+
+        th{
+            text-align:left;
+            padding:12px 10px;
+            color:#333;
+            width:40%;
+        }
+
+        td{
+            padding:12px 10px;
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            border:1px solid #ccc;
+            border-radius:6px;
+            font-size:15px;
+        }
+
+        input:focus{
+            border:2px solid royalblue;
+            outline:none;
+        }
+
+        .btn{
+            width:100%;
+            padding:12px;
+            margin-top:20px;
+            background:royalblue;
+            color:white;
+            border:none;
+            border-radius:6px;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        .btn:hover{
+            background:#003399;
+        }
+    </style>
+
+</head>
+
+<body>
+
+{% include "Header.html" %}
+
+<hr>
+
+<div class="container">
+
+    <h1>STUDENT REGISTRATION</h1>
+
+    <hr>
+    <hr>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <table>
+
+            <tr>
+                <th>FIRST NAME</th>
+                <td><input type="text" name="first_name" placeholder="Enter First Name"></td>
+            </tr>
+
+            <tr>
+                <th>LAST NAME</th>
+                <td><input type="text" name="last_name" placeholder="Enter Last Name"></td>
+            </tr>
+
+            <tr>
+                <th>CLASS</th>
+                <td><input type="number" name="class" placeholder="Enter Class"></td>
+            </tr>
+
+            <tr>
+                <th>PHONE NUMBER</th>
+                <td><input type="text" name="phone" placeholder="Enter Phone Number"></td>
+            </tr>
+
+            <tr>
+                <th>DOB</th>
+                <td><input type="date" name="dob"></td>
+            </tr>
+
+            <tr>
+                <th>ADDRESS</th>
+                <td><input type="text" name="address" placeholder="Enter Address"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <button type="submit" class="btn">
+                        Register
+                    </button>
+                </td>
+            </tr>
+
+        </table>
+
+    </form>
+
+</div>
+
+</body>
+</html>

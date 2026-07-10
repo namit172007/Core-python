@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if request.session.first_name != None %}
+<h3>Hi, {{ request.session.first_name }}</h3>
+<a href="/student/save/"><b>Add User</b></a> <b>|</b>
+<a href="/student/list/"><b>User List</b></a> <b>|</b>
+<a href="/student/logout/"><b>Logout</b></a>
+{% else %}
+<h3>Hi, Guest</h3>
+<a href="/student/welcome/"><b>Welcome</b></a> <b>|</b>
+<a href="/student/signin/"><b>Login</b></a> <b>|</b>
+<a href="/student/signup/"><b>Registration</b></a>
+{% endif %}
+<hr>
+</body>
+</html>
