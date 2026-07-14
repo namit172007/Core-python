@@ -38,7 +38,8 @@ class UserService:
         print('data inserted successfully')
 
     def update(self, data):
-        id = UserService.next_pk(self)
+        # id = UserService.next_pk(self)
+        id = data['id']
         name = data['name']
         course = data['course']
         login_id = data['login_id']
@@ -52,8 +53,8 @@ class UserService:
             raise Exception('Login ID already exist')
 
         cursor = connection.cursor()
-        sql = "update sos_user2 set first_name = %s, last_name = %s,login_id = %s, password = %s, dob = %s, address = %s where id = %s"
-        data = (id, name, course, login_id, password, joining_date , address)
+        sql = "update sos_user2 set name = %s, course = %s,login_id = %s, password = %s, joining_date = %s, address = %s where id = %s"
+        data = ( name, course, login_id, password, joining_date , address,id)
         cursor.execute(sql, data)
         connection.commit()
         connection.close()
