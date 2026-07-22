@@ -1,0 +1,66 @@
+{% include "./Header.html"%}
+
+<div class="container">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title ">Customer Information</h4>
+            </div>
+            {% if form.message %}
+            <div class="alert {% if form.error %}alert-danger{% else %}alert-success{% endif %} alert-dismissible fade show" role="alert">
+                <strong>{% if form.error %}Error:{% else %}Success:{% endif %}</strong> {{form.message}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endif %}
+            <form method="POST">
+                <input type="hidden" name="id" value="{{form.id}}">
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label class="col-lg-3 form-control-label">Name * </label>
+                        <div class="col-lg-9">
+                            <input name="name" value="{{form.name}}" class="form-control">
+                            <span style="color: red;"> {{form.inputError.name}} </span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 form-control-label">Phone * </label>
+                        <div class="col-lg-9">
+                            <input style="cursor: pointer" type="phone" name="phone" value="{{form.phone}}" class="form-control" />
+                            <span style="color: red;"> {{form.inputError.phone}} </span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 form-control-label">Email * </label>
+                        <div class="col-lg-9">
+                            <input class="form-control" name="email" value="{{form.email}}">
+                            <span style="color: red;"> {{form.inputError.email}} </span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 form-control-label">City * </label>
+                        <div class="col-lg-9">
+                            <input class="form-control" name="city" value="{{form.city}}">
+                            <span style="color: red;"> {{form.inputError.city}} </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-lg-12">
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save</button>
+                            <a href="/ORS/CustomerList" class="btn btn-secondary"><i class="fas fa-list"></i> List</a> {% if form.id %}
+                            <a href="/ORS/CustomerList/delete/{{form.id}}" class="btn btn-danger">
+                                <i class="fas fa-trash"></i> Delete
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% include "./Footer.html"%}
+</div>
